@@ -18,8 +18,11 @@ var user = {
   }
 };
 
-var ex1 = undefined;
-
+var ex1 = _.compose(
+  chain(safeProp('name')),
+  chain(safeProp('street')),
+  safeProp('address')
+);
 
 // Exercise 2
 // ==========
@@ -36,7 +39,7 @@ var pureLog = function(x) {
   });
 }
 
-var ex2 = undefined;
+var ex2 = _.compose(join, _.map(_.compose(pureLog, _.last, split('\\'))), getFile);
 
 
 
