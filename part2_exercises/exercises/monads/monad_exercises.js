@@ -39,7 +39,8 @@ var pureLog = function(x) {
   });
 }
 
-var ex2 = _.compose(join, _.map(_.compose(pureLog, _.last, split('\\'))), getFile);
+var extractFileName = _.compose(_.last, split('\\'));
+var ex2 = _.compose(pureLog, _.chain(extractFileName), getFile);
 
 
 
